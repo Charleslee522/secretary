@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "==3.0.2"
+djangorestframework = "==3.10.3"
+django-environ = "==0.4.5"
+django-mysql = "==3.3.0"
+mysqlclient = "==1.4.6"
+yaml = "*"
+pyyaml = "*"
+
+[requires]
+python_version = "3.8"

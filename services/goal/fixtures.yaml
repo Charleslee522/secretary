@@ -1,0 +1,14 @@
+################################################################
+# root
+- model: schedule_secretary.auth_user
+  pk: 1
+  fields:
+    username: charles
+    password: pbkdf2_sha256$180000$cZXbs9xHiCrO$Nkj8gOqBAMFAsZ4KsLrqx71SLFKgT8YxSTAye8z+qQM=
+    is_staff: true
+    is_active: true
+    type: staff
+- model: users.Staff
+  pk: 1
+  fields:
+    name: 관리자
