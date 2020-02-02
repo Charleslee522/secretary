@@ -6,12 +6,15 @@ Manage my time, schedule, memory, etc...
 ## Getting Started
 
 ### Requirements
-Python 3.8+
-MySQL 5.7
+
+* Python 3.8+
+* MySQL 5.7
 
 ### Install Dependencies
+```
 $ pipenv install --dev
-If occur mysql client error, link
+```
+If occur mysql client error, [link](#mysqlclient-install-error)
 
 ### Setup Local Infrastructure
 
