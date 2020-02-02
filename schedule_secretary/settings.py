@@ -16,7 +16,7 @@ from pathlib import Path
 
 # django-environ
 # http://django-environ.readthedocs.org
-root = environ.Path(__file__) - 1  # kasa-api/django/
+root = environ.Path(__file__) - 1
 if Path(root('.env')).exists():
     environ.Env.read_env(env_file=root('.env'))
 
@@ -28,7 +28,7 @@ env = environ.Env(
 APP_ENV = env.str('APP_ENV', default='local')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = environ.Path(__file__) - 1  # kasa-api/django/kasa
+BASE_DIR = environ.Path(__file__) - 1
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
