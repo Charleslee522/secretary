@@ -123,6 +123,53 @@ class CreatedAtFilter(admin.SimpleListFilter):
             )
 
 
+class PriorityFilter(admin.SimpleListFilter):
+    title = 'Priority'
+    parameter_name = 'priority'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('top_priority', 'Top Priority Elements'),
+            ('top', 'Top'),
+        )
+
+    def queryset(self, request, queryset):
+
+        if self.value() == 'top':
+
+            return queryset.filter( 
+                priority=0,
+            )
+
+        if self.value() == 'top_priority':
+
+            return queryset.filter(
+                priority=0,
+            )
+
+class GoalFilter(admin.SimpleListFilter):
+    title = 'Goal'
+    parameter_name = 'goal'
+
+    def lookups(self, request, model_admin):
+
+        return (
+            ('ETC', 'ETC'),
+            ('G1', 'G1'),
+            ('G2', 'G2'),
+            ('G3', 'G3'),
+            ('G4', 'G4'),
+            ('G5', 'G5'),
+            ('G6', 'G6'),
+            ('G7', 'G7'),
+        )
+
+    def queryset(self, request, queryset):
+        return queryset.filter( 
+            goal__code=self.value(),
+        )
+
+
 @admin.register(ActionItem)
 class ActionItemAdmin(admin.ModelAdmin):
 
@@ -151,6 +198,8 @@ class ActionItemAdmin(admin.ModelAdmin):
     list_filter = (
         StatusFilter,
         CreatedAtFilter,
+        PriorityFilter,
+        GoalFilter,
     )
 
     ordering = (
