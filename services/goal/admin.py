@@ -129,8 +129,8 @@ class PriorityFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         return (
-            ('top_priority', 'Top Priority Elements'),
             ('top', 'Top'),
+            ('high', 'High'),
         )
 
     def queryset(self, request, queryset):
@@ -141,10 +141,10 @@ class PriorityFilter(admin.SimpleListFilter):
                 priority=0,
             )
 
-        if self.value() == 'top_priority':
+        if self.value() == 'high':
 
             return queryset.filter(
-                priority=0,
+                priority__lte=10,
             )
 
 class GoalFilter(admin.SimpleListFilter):
@@ -203,7 +203,7 @@ class ActionItemAdmin(admin.ModelAdmin):
     )
 
     ordering = (
-        'end_at',
+        '-end_at',
         'priority',
         'deadline',
         'goal',
